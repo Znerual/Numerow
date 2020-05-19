@@ -27,9 +27,10 @@
     REAL(p), DIMENSION(1) :: URHO(NR),G(NR) ! dummy function G=0 for Numerow routine
 
     G=0.0_p
-    
+   
     call INIT_UPOT(UPOT,R,NR)
     call CALC_URHO(U,R,NR,URHO)
+
     call INTEGRATE_Y_USING_NUMEROW_FROM_OUTSIDE(UPOT, G, -URHO,NR,DR)
     !###########################################################
     !   TODO: CALL THE THREE REQUIRED ROUTINES IN THE CORRECT ORDER
@@ -37,13 +38,17 @@
     !###########################################################
 
     EREP=0.0_p
-    DO I=1,NR
+    !TRAPEZREGEL FÜRS INTEGRAL
+    EREP = EREP + URHO(1) * UPOT(1)
+    DO I=2,NR-1
+        EREP = EREP + 2d0 * URHO(I) * UPOT(I)
         !###########################################################
         !   TODO: ENTER APPROPRIATE EXPRESSION FOR
         !         REPULSION ENERGY HERE (1 line)
         !###########################################################
     ENDDO
-
+    EREP = EREP + URHO(NR) * UPOT(NR)
+    EREP = DR * 0.5d0 * EREP
     END SUBROUTINE SOLVE_POISSON
 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -60,7 +65,7 @@
     REAL(p), intent(out) :: URHO(NR)
     ! local
     !INTEGER :: I
-    URHO =  (U / R)**2
+    URHO =  (U**2/R)
     !###########################################################
     !   TODO: CALCULATE CHARGE DENSITY HERE (3 lines)
     !###########################################################
@@ -81,7 +86,7 @@
     REAL(p),intent(in) :: R(NR)
 
     UPOT(NR) = 1
-    UPOT(NR -1) = 1
+    UPOT(NR - 1) = 1
     !###########################################################
     !   TODO: SET PROPEER INITIAL VALUES FOR THE POTENTIAL
     !         NEEDED BY NUMEROW METHOD (2 lines)

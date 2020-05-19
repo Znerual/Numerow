@@ -50,9 +50,9 @@
     ! local
     INTEGER :: I
 
-    DO I = NR - 1, 2
+    DO I = NR - 1, 2, -1
         Y(I - 1) = (2d0 * Y(I) * (1d0 - 5d0/12d0*DR**2 * G(I)) - Y(I + 1) * &
-            (1d0 + G(I-1) * DR**2 / 12d0) + DR**2/12d0 * &
+            (1d0 + G(I+1) * DR**2 / 12d0) + DR**2/12d0 * &
             (S(I+1) + 10d0 * S(I) + S(I - 1))) / (1d0 + DR**2 * G(I-1) / 12d0)
     END DO
 
