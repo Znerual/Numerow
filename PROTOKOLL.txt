@@ -1,0 +1,22 @@
+Protokoll vom 19.05.2020
+Gruppennr: 5
+Uebung: 05 (NMS)
+Name: Marina Bishara und Laurenz Ruzicka
+
+Helium
+	Programm(e):
+		'helium.f90' - main code
+		'constants.f90' - Modul, das alle Konstanten enthält
+		'schroedinger.f90'
+		'poisson.f90'
+		'numerow.f90'
+
+		Kompiliere mit: gfortran -o helium constants.f90 numerow.f90 poisson.f90 schroedinger.f90 helium.f90
+	
+	Ausführbares Programm: 'helium'
+	
+	Dauer: 2.5h
+
+	Erhaltene Zahlenwerte passen mit der Angabe überein.
+ 
+Bitten um Feedback

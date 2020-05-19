@@ -96,5 +96,5 @@
 
     WRITE(*,*) 'Repulsion energy of electron is ',EREP,' Hartree'
 
-    WRITE(*,*) 'Binding energy for He ', EMIN + EMAX - EREP
+    WRITE(*,*) 'Binding energy for He ', EMIN + EMAX - EREP, ' Hartree'
     END PROGRAM

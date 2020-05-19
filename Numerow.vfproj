@@ -25,12 +25,15 @@
 				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
 	<Files>
 		<Filter Name="Header Files" Filter="fi;fd"/>
-		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath=".\Hydrogen_orbital.dat"/>
+		<File RelativePath=".\Hydrogen_orbital_potential.dat"/></Filter>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 		<File RelativePath=".\constants.f90"/>
 		<File RelativePath=".\helium.f90"/>
 		<File RelativePath=".\numerow.f90"/>
 		<File RelativePath=".\poisson.f90"/>
+		<File RelativePath=".\PROTOKOLL.txt"/>
 		<File RelativePath=".\schroedinger.f90"/></Filter>
 		<File RelativePath=".\ReadMe.txt"/></Files>
 	<Globals/></VisualStudioProject>
